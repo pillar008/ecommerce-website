@@ -1,0 +1,62 @@
+/* Signup.css */
+
+.signup-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.signup-container h1 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+.signup-container form div {
+  margin-bottom: 15px;
+}
+
+.signup-container label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.signup-container input[type="text"],
+.signup-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 10px; /* Adjusted margin to separate inputs */
+}
+
+.signup-container button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.signup-container button:hover {
+  background-color: #0056b3;
+}
+
+.signup-container div:last-child {
+  margin-top: 15px;
+}
+
+.signup-container div:last-child button {
+  background-color: transparent;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.signup-container div:last-child button:hover {
+  text-decoration: underline;
+}
