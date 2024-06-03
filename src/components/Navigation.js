@@ -1,72 +1,54 @@
-// Navigation.js
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import "./Navigation.css";
 
-function Navigation() {
+const Navigation = () => {
   const { user, logout } = useAuth();
 
   return (
     <nav className="nav">
       <ul>
         <li>
-          <NavLink
-            to="/"
-            exact
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
+          <NavLink to="/men" activeClassName="active">
             Men
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to="/women"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
+          <NavLink to="/women" activeClassName="active">
             Women
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to="/kids"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
+          <NavLink to="/kids" activeClassName="active">
             Kids
           </NavLink>
         </li>
         <li>
-          <NavLink
-            to="/cart"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
+          <NavLink to="/cart" activeClassName="active">
             Cart
           </NavLink>
         </li>
-        {user ? (
-          <>
-            <li>
+        <li className="auth-links">
+          {user ? (
+            <>
               <span>Hello, {user.username}</span>
-            </li>
-            <li>
               <button onClick={logout}>Logout</button>
-            </li>
-          </>
-        ) : (
-          <>
-            <li>
-              <NavLink
-                to="/signup"
-                className={({ isActive }) => (isActive ? "active" : "")}
-              >
+            </>
+          ) : (
+            <>
+              <NavLink to="/login" activeClassName="active">
+                Login
+              </NavLink>
+              <NavLink to="/signup" activeClassName="active">
                 Signup
               </NavLink>
-            </li>
-          </>
-        )}
+            </>
+          )}
+        </li>
       </ul>
     </nav>
   );
-}
+};
 
 export default Navigation;

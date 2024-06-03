@@ -8,7 +8,6 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import PrivateRoute from "./components/PrivateRoute";
 import { AuthProvider } from "./components/AuthContext";
-import { CartProvider } from "./components/CartContext";
 import {
   menProducts,
   womenProducts,
@@ -18,45 +17,44 @@ import {
 function App() {
   return (
     <AuthProvider>
-      <CartProvider>
-        <BrowserRouter>
-          <div className="app">
-            <Navigation />
-            <Routes>
-              <Route
-                path="/"
-                exact
-                element={
-                  <ProductListing section="men" products={menProducts} />
-                }
-              />
-              <Route
-                path="/women"
-                element={
-                  <ProductListing section="women" products={womenProducts} />
-                }
-              />
-              <Route
-                path="/kids"
-                element={
-                  <ProductListing section="kids" products={kidsProducts} />
-                }
-              />
-              <Route path="/product/:id" element={<ProductDetails />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route
-                path="/cart"
-                element={
-                  <PrivateRoute>
-                    <Cart />
-                  </PrivateRoute>
-                }
-              />
-            </Routes>
-          </div>
-        </BrowserRouter>
-      </CartProvider>
+      <BrowserRouter>
+        <div className="app">
+          <Navigation />
+          <Routes>
+            <Route
+              path="/"
+              element={<ProductListing section="men" products={menProducts} />}
+            />
+            <Route
+              path="/men"
+              element={<ProductListing section="men" products={menProducts} />}
+            />
+            <Route
+              path="/women"
+              element={
+                <ProductListing section="women" products={womenProducts} />
+              }
+            />
+            <Route
+              path="/kids"
+              element={
+                <ProductListing section="kids" products={kidsProducts} />
+              }
+            />
+            <Route path="/product/:id" element={<ProductDetails />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route
+              path="/cart"
+              element={
+                <PrivateRoute>
+                  <Cart />
+                </PrivateRoute>
+              }
+            />
+          </Routes>
+        </div>
+      </BrowserRouter>
     </AuthProvider>
   );
 }
