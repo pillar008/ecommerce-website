@@ -1,17 +1,13 @@
-// Signup.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
-import "./Signup.css"; // Import CSS for styling
-import Login from "./Login"; // Import the Login component
+import "./Signup.css";
 
 const Signup = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useAuth();
   const navigate = useNavigate();
-  const [showLoginForm, setShowLoginForm] = useState(false);
-  const [showSignupForm, setShowSignupForm] = useState(true); // State to track signup form visibility
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,43 +21,28 @@ const Signup = () => {
     }
   };
 
-  const handleLoginClick = () => {
-    setShowLoginForm(true); // Show login form
-    setShowSignupForm(false); // Hide signup form
-  };
-
   return (
-    <div className="signup-container">
-      {showSignupForm && (
-        <>
-          <h1>Signup</h1>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label>Username:</label>
-              <input
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-            </div>
-            <div>
-              <label>Password:</label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <button type="submit">Signup</button>
-          </form>
-          <div>
-            Already have an account?{" "}
-            <button onClick={handleLoginClick}>Login</button>
-          </div>
-        </>
-      )}
-      {showLoginForm && <Login />}{" "}
-      {/* Only render login form if showLoginForm is true */}
+    <div className="auth-container">
+      <h1>Signup</h1>
+      <form onSubmit={handleSubmit}>
+        <div className="input-group">
+          <label>Username:</label>
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+        <div className="input-group">
+          <label>Password:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+        <button type="submit">Signup</button>
+      </form>
     </div>
   );
 };

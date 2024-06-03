@@ -8,7 +8,9 @@ const ProductCard = ({ product, showDetailsLink = true, onAddToCart }) => (
     <h2>{product.name}</h2>
     <p>{product.price}</p>
     {showDetailsLink && <Link to={`/product/${product.id}`}>View Details</Link>}
-    <button onClick={() => onAddToCart(product)}>Add to Cart</button>
+    {onAddToCart && (
+      <button onClick={() => onAddToCart(product)}>Add to Cart</button>
+    )}
   </div>
 );
 

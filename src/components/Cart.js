@@ -1,4 +1,3 @@
-// Cart.js
 import React from "react";
 import { useCart } from "./CartContext";
 import ProductCard from "./ProductCard";
@@ -18,14 +17,14 @@ const Cart = () => {
         <p>Your cart is empty</p>
       ) : (
         cart.map((item) => (
-          <ProductCard
-            key={item.id}
-            product={item}
-            showDetailsLink={false}
-            onAddToCart={null}
-          >
+          <div key={item.id} className="cart-item">
+            <ProductCard
+              product={item}
+              showDetailsLink={false}
+              onAddToCart={null}
+            />
             <button onClick={() => removeFromCart(item.id)}>Remove</button>
-          </ProductCard>
+          </div>
         ))
       )}
     </div>
